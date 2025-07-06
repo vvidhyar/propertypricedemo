@@ -9,7 +9,8 @@ import os
 app = Flask(__name__)
 
 # Initialize LLM and agent
-llm = ChatOpenAI(model="gpt-4", openai_api_key=os.getenv("OPENAI_API_KEY"))
+openai_api_key = os.getenv("OPENAI_API_KEY")
+llm = ChatOpenAI(model="gpt-4", openai_api_key=openai_api_key)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 agent = initialize_agent(

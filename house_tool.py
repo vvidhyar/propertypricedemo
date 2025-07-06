@@ -29,7 +29,7 @@ class HousePricePredictorTool(BaseTool):
     def _run(self, **kwargs):
         url = "https://adb-1805611446428304.4.azuredatabricks.net/serving-endpoints/housepricedisplayinchatbot/invocations"
         headers = {
-            "Authorization": os.getenv("DATABRICKS_TOKEN"),
+            "Authorization": f"Bearer {os.getenv('DATABRICKS_TOKEN')}",
             "Content-Type": "application/json"
         }
         defaults = {
